@@ -7,7 +7,7 @@ import useAccount from "../../hooks/accounts";
 import getBlockchain from "../../ethereum";
 import { ethers } from "ethers"
 
-const NewRoulette = ({ setWinnerGame, active, betAmount }) => {
+const NewRoulette = ({ setWinnerGame, active, betAmount, selected, setBetAmount2 }) => {
   const classes = useStyles();
 
   const [signer, setSigner] = useState(undefined)
@@ -28,10 +28,14 @@ const NewRoulette = ({ setWinnerGame, active, betAmount }) => {
     await setWinner(aux);
     await setWinnerGame(aux);
     //await contract.placeBet(5);
-    const amount = await ethers.utils.parseEther(betAmount) //betAmount is String
+    const amount = `${betAmount * selected.length}`
+    setBetAmount2(amount)
+    const newAmount = await ethers.utils.parseEther(amount) //betAmount is String
+    console.log("new amount: ", newAmount)
+    console.log("selected: ", selected)
     await signer.sendTransaction({
       to: contract.address,
-      value: amount
+      value: newAmount
     })
     await setTimeout(() => active(false), 3000);
   };

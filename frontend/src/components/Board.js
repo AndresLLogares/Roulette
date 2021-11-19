@@ -6,7 +6,7 @@ import Chip from "../images/Chip.png";
 import Pointer from "../images/pointer.png";
 import toast from "react-hot-toast";
 import { ethers } from "ethers";
-const Board = ({ winner, active, contract, betAmount, currentUser }) => {
+const Board = ({ winner, active, contract, betAmount, currentUser, setSelectedMain }) => {
   const classes = useStyles();
 
   const [number0, setNumber0] = useState(false);
@@ -58,8 +58,9 @@ const Board = ({ winner, active, contract, betAmount, currentUser }) => {
         let aux = selected;
         let setWinner = aux.filter((item) => item === winner);
         if (setWinner.length !== 0) {
-          toast.success("YOU WIN")
+          console.log("Amount win: ", betAmount)
           await contract.payWinner(ethers.utils.parseEther(betAmount))
+          toast.success("YOU WIN")
           return;
         }
         toast.success("YOU LOSE")
@@ -83,6 +84,21 @@ const Board = ({ winner, active, contract, betAmount, currentUser }) => {
       setNumber33(true);
       setNumber36(true);
       setSelected((selected) => [
+        ...selected,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27,
+        30,
+        33,
+        36,
+      ]);
+      setSelectedMain((selected) => [
         ...selected,
         3,
         6,
@@ -150,6 +166,21 @@ const Board = ({ winner, active, contract, betAmount, currentUser }) => {
         32,
         35,
       ]);
+      setSelectedMain((selected) => [
+        ...selected,
+        2,
+        5,
+        8,
+        11,
+        14,
+        17,
+        20,
+        23,
+        26,
+        29,
+        32,
+        35,
+      ]);
     } else {
       setNumber2(false);
       setNumber5(false);
@@ -189,6 +220,21 @@ const Board = ({ winner, active, contract, betAmount, currentUser }) => {
       setNumber31(true);
       setNumber34(true);
       setSelected((selected) => [
+        ...selected,
+        1,
+        4,
+        7,
+        10,
+        13,
+        16,
+        19,
+        22,
+        25,
+        28,
+        31,
+        34,
+      ]);
+      setSelectedMain((selected) => [
         ...selected,
         1,
         4,

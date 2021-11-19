@@ -13,6 +13,10 @@ import NewRoulette from "./Roulette/Roulette2.0";
 const Game = () => {
   const classes = useStyles();
 
+  const [betAmount2, setBetAmount2] = useState()
+
+  const [selected, setSelected] = useState([])
+
   const [betAmount, setBetAmount] = useState()
 
   const [signer, setSigner] = useState(undefined)
@@ -57,10 +61,10 @@ const Game = () => {
         <div className={classes.divRoulette}>
           <div className={classes.divUp}>
             <div className={classes.divWheel}>
-              <NewRoulette setWinnerGame={setWinner} active={setActive} betAmount={betAmount}/>
+              <NewRoulette setWinnerGame={setWinner} active={setActive} betAmount={betAmount} selected={selected} setBetAmount2={setBetAmount2}/>
             </div>
             <div className={classes.divInfo}>
-              <div className={classes.eachInfo}>
+              <div className={classes.eachInfo}> 
                 <Typography className={classes.info}>
                   User: {currentUser}
                 </Typography>
@@ -87,7 +91,7 @@ const Game = () => {
       </Zoom>
       <Zoom className={classes.zoom}>
         <div className={classes.divBoard}>
-          <Board winner={winner} active={active} contract={contract} betAmount={`${betAmount * 2}`} currentUser={currentUser}/>
+          <Board winner={winner} active={active} contract={contract} betAmount={`${betAmount2 * 2}`} currentUser={currentUser} setSelectedMain={setSelected}/>
         </div>
       </Zoom>
     </div>
