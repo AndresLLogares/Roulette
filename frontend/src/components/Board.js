@@ -61,7 +61,7 @@ const Board = ({ winner, active }) => {
       }
       toast.success("YOU LOSE")
     }
-  }, [active, winner]);
+  }, [active]);
 
   const handleRowOne = () => {
     if (rowOne) {

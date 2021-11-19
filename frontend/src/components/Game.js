@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Roulette from "./Roulette";
 import { Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Zoom } from "react-awesome-reveal";
@@ -10,7 +9,7 @@ import Board from "./Board";
 import BackImage from "../images/back4.jpg";
 import { Toaster } from "react-hot-toast";
 import getBlockchain from "../ethereum";
-
+import NewRoulette from "./Roulette/Roulette2.0";
 const Game = () => {
   const classes = useStyles();
 
@@ -18,38 +17,23 @@ const Game = () => {
 
   const { account, balance } = useAccount();
 
-  const [acitveWheel, setActiveWheel] = useState(false);
-
   const [currentUser, setCurrentUser] = useState("");
 
   const [currentBalance, setCurrentBalance] = useState(0);
 
   const [winner, setWinner] = useState(0);
 
+  const [active, setActive] = useState(false);
+
   useEffect(() => {
     setCurrentUser(account);
     setCurrentBalance(balance?.slice(0, 8));
     const init = async () => {
       const { roulette } = await getBlockchain();
-
-
       await setContract(roulette);
-      console.log('useffect',contract);
-
     };
     init();
   }, [account, balance]);
-  console.log('afuera',contract);
-
-  const handlePlay = async () => {
-    await setWinner(Math.floor(Math.random() * 37));
-    await setActiveWheel(true);
-    await setTimeout(() => {
-      setActiveWheel(false);
-    }, 12000);
-    console.log('funcion',contract);
-    await contract.placeBet("0.000005");
-  };
 
   return (
     <div className={classes.container}>
@@ -63,7 +47,7 @@ const Game = () => {
         <div className={classes.divRoulette}>
           <div className={classes.divUp}>
             <div className={classes.divWheel}>
-              <Roulette gameActive={acitveWheel} winner={winner} />
+              <NewRoulette setWinnerGame={setWinner} active={setActive} />
             </div>
             <div className={classes.divInfo}>
               <div className={classes.eachInfo}>
@@ -76,16 +60,13 @@ const Game = () => {
                   Balance: {currentBalance} ethers
                 </Typography>
               </div>
-              <Button className={classes.button} onClick={handlePlay}>
-                <Typography className={classes.textButton}>Play</Typography>
-              </Button>
             </div>
           </div>
         </div>
       </Zoom>
       <Zoom className={classes.zoom}>
         <div className={classes.divBoard}>
-          <Board winner={winner} active={acitveWheel} />
+          <Board winner={winner} active={active} />
         </div>
       </Zoom>
     </div>
