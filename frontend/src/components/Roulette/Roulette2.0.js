@@ -5,9 +5,12 @@ import Colors from "../../colors/colors";
 import Pointer from "../../images/pointer.png";
 import useAccount from "../../hooks/accounts";
 import getBlockchain from "../../ethereum";
+import { ethers } from "ethers"
 
-const NewRoulette = ({ setWinnerGame, active }) => {
+const NewRoulette = ({ setWinnerGame, active, betAmount }) => {
   const classes = useStyles();
+
+  const [signer, setSigner] = useState(undefined)
 
   const { account, balance } = useAccount();
 
@@ -24,7 +27,12 @@ const NewRoulette = ({ setWinnerGame, active }) => {
     await active(true);
     await setWinner(aux);
     await setWinnerGame(aux);
-    await contract.placeBet(5);
+    //await contract.placeBet(5);
+    const amount = await ethers.utils.parseEther(betAmount) //betAmount is String
+    await signer.sendTransaction({
+      to: contract.address,
+      value: amount
+    })
     await setTimeout(() => active(false), 3000);
   };
 
@@ -32,8 +40,10 @@ const NewRoulette = ({ setWinnerGame, active }) => {
     setCurrentUser(account);
     setCurrentBalance(balance?.slice(0, 8));
     const init = async () => {
+      const { signer } = await getBlockchain();
       const { roulette } = await getBlockchain();
       await setContract(roulette);
+      await setSigner(signer);
     };
     init();
   }, [account, balance]);

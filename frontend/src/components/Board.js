@@ -5,7 +5,8 @@ import Colors from "../colors/colors";
 import Chip from "../images/Chip.png";
 import Pointer from "../images/pointer.png";
 import toast from "react-hot-toast";
-const Board = ({ winner, active }) => {
+import { ethers } from "ethers";
+const Board = ({ winner, active, contract, betAmount, currentUser }) => {
   const classes = useStyles();
 
   const [number0, setNumber0] = useState(false);
@@ -53,13 +54,17 @@ const Board = ({ winner, active }) => {
   useEffect(() => {
 
     if (active) {
-      let aux = selected;
-      let setWinner = aux.filter((item) => item === winner);
-      if (setWinner.length !== 0) {
-        toast.success("YOU WIN")
-        return;
+      const init = async() => {
+        let aux = selected;
+        let setWinner = aux.filter((item) => item === winner);
+        if (setWinner.length !== 0) {
+          toast.success("YOU WIN")
+          await contract.payWinner(ethers.utils.parseEther(betAmount))
+          return;
+        }
+        toast.success("YOU LOSE")
       }
-      toast.success("YOU LOSE")
+      init();
     }
   }, [active]);
 

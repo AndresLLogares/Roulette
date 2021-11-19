@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/andres/Casino-Eth/contracts/Ctn.sol": {
-      "lastModificationDate": 1637261976465,
-      "contentHash": "b1cb21e30ec0c3e37523fe18f3ee7f3e",
+    "C:\\Users\\alvar\\Desktop\\Blockchain web course\\hardhat\\CasinoV3\\Ruleta\\contracts\\Ctn.sol": {
+      "lastModificationDate": 1637350210032,
+      "contentHash": "7e955c8ea0bc9eb59942e9320f745122",
       "sourceName": "contracts/Ctn.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -39,8 +39,8 @@
         "Ctn"
       ]
     },
-    "/home/andres/Casino-Eth/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1637262180935,
+    "C:\\Users\\alvar\\Desktop\\Blockchain web course\\hardhat\\CasinoV3\\Ruleta\\node_modules\\hardhat\\console.sol": {
+      "lastModificationDate": 1637350338297,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
@@ -74,8 +74,8 @@
         "console"
       ]
     },
-    "/home/andres/Casino-Eth/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1637262056256,
+    "C:\\Users\\alvar\\Desktop\\Blockchain web course\\hardhat\\CasinoV3\\Ruleta\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol": {
+      "lastModificationDate": 1637350328442,
       "contentHash": "2cd550cedf51b8d294607dad5023d717",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
@@ -113,8 +113,8 @@
         "ERC20"
       ]
     },
-    "/home/andres/Casino-Eth/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1637262056384,
+    "C:\\Users\\alvar\\Desktop\\Blockchain web course\\hardhat\\CasinoV3\\Ruleta\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol": {
+      "lastModificationDate": 1637350330081,
       "contentHash": "0eac3e1a83ee62326ca007811285b274",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
@@ -148,8 +148,8 @@
         "IERC20"
       ]
     },
-    "/home/andres/Casino-Eth/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1637262056388,
+    "C:\\Users\\alvar\\Desktop\\Blockchain web course\\hardhat\\CasinoV3\\Ruleta\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\IERC20Metadata.sol": {
+      "lastModificationDate": 1637350330096,
       "contentHash": "aa1be06992a99bb7393b26a6af3c4dfb",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
@@ -185,8 +185,8 @@
         "IERC20Metadata"
       ]
     },
-    "/home/andres/Casino-Eth/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1637262056148,
+    "C:\\Users\\alvar\\Desktop\\Blockchain web course\\hardhat\\CasinoV3\\Ruleta\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1637350327113,
       "contentHash": "851485d5b925529b1a2f34a0be077891",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -220,9 +220,9 @@
         "Context"
       ]
     },
-    "/home/andres/Casino-Eth/contracts/oldRulet.sol": {
-      "lastModificationDate": 1637261976465,
-      "contentHash": "9e5c4a0a4dfe0283477fb6b26cbb087a",
+    "C:\\Users\\alvar\\Desktop\\Blockchain web course\\hardhat\\CasinoV3\\Ruleta\\contracts\\oldRulet.sol": {
+      "lastModificationDate": 1637350210034,
+      "contentHash": "448a246c85ef58891db751e018b10eb2",
       "sourceName": "contracts/oldRulet.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -258,9 +258,9 @@
         "RuletaOld"
       ]
     },
-    "/home/andres/Casino-Eth/contracts/Ruleta.sol": {
-      "lastModificationDate": 1637261976465,
-      "contentHash": "278bb841aee5aad5b11e4cd5ffdf2339",
+    "C:\\Users\\alvar\\Desktop\\Blockchain web course\\hardhat\\CasinoV3\\Ruleta\\contracts\\Ruleta.sol": {
+      "lastModificationDate": 1637352501792,
+      "contentHash": "a48d23230a93c3b10badbcdd47f2be37",
       "sourceName": "contracts/Ruleta.sol",
       "solcConfig": {
         "version": "0.8.0",

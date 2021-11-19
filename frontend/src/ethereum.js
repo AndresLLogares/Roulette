@@ -9,10 +9,10 @@ const getBlockchain = async () => {
       const signer = provider.getSigner();
       const signerAddress = await signer.getAddress();
       const roulette = new Contract(Ruleta.address, Ruleta.abi, signer);
-      return { signerAddress, roulette };
+      return { signer, signerAddress, roulette };
     }
   } catch (err) {
-    return { signerAddress: undefined, roulette: undefined };
+    return { signer: undefined,  signerAddress: undefined, roulette: undefined };
   }
 };
 

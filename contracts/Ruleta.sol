@@ -6,19 +6,14 @@ import "hardhat/console.sol";
 contract Ruleta {
     uint public funds;
 
-    function placeBet(uint amount) external {
-        funds += amount;
+    function payWinner(uint amount) external {
+        uint contractBalance = address(this).balance;
+        require(contractBalance >= amount, "Contract balance too low");
+        payable(msg.sender).transfer(amount);
     }
 
-    function payWinner(uint amount, address payable to) external {
-        require(funds >= amount, "Contract funds too low");
-
-        to.transfer(amount);
-        funds -= amount;
-    }
-
-    function getFunds() external view returns(uint) {
-        return funds;
+    function getBalance() external view returns (uint) {
+        return address(this).balance;
     }
 
     receive() external payable {}

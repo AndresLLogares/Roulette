@@ -9,7 +9,8 @@ async function main() {
   await ruleta.deployed();
 
   //Agregar fondos al contrato
-  ruleta.connect(addr1).placeBet(10000);
+  await hre.web3.eth.sendTransaction({from: addr1.address, to: ruleta.address, value: hre.ethers.utils.parseEther("1000")})
+  //await ruleta.connect(addr1).placeBet(10000);
 
   const data = {
     address: ruleta.address,

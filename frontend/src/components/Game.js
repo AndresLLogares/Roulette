@@ -13,6 +13,10 @@ import NewRoulette from "./Roulette/Roulette2.0";
 const Game = () => {
   const classes = useStyles();
 
+  const [betAmount, setBetAmount] = useState()
+
+  const [signer, setSigner] = useState(undefined)
+
   const [contract, setContract] = useState(undefined);
 
   const { account, balance } = useAccount();
@@ -29,11 +33,17 @@ const Game = () => {
     setCurrentUser(account);
     setCurrentBalance(balance?.slice(0, 8));
     const init = async () => {
+      const { signer } = await getBlockchain();
       const { roulette } = await getBlockchain();
       await setContract(roulette);
+      await setSigner(signer);
     };
     init();
   }, [account, balance]);
+
+  function handleInputChange(e) {
+    setBetAmount(`${e.target.value}`)
+  }
 
   return (
     <div className={classes.container}>
@@ -47,7 +57,7 @@ const Game = () => {
         <div className={classes.divRoulette}>
           <div className={classes.divUp}>
             <div className={classes.divWheel}>
-              <NewRoulette setWinnerGame={setWinner} active={setActive} />
+              <NewRoulette setWinnerGame={setWinner} active={setActive} betAmount={betAmount}/>
             </div>
             <div className={classes.divInfo}>
               <div className={classes.eachInfo}>
@@ -60,13 +70,24 @@ const Game = () => {
                   Balance: {currentBalance} ethers
                 </Typography>
               </div>
+              <div className={classes.eachInfo}>
+                <Typography className={classes.info}>
+                  Bet Amount:
+                </Typography>
+              <input 
+                onChange={handleInputChange}
+              />
+              <Typography className={classes.info}>
+                  Eth
+              </Typography>
+              </div>
             </div>
           </div>
         </div>
       </Zoom>
       <Zoom className={classes.zoom}>
         <div className={classes.divBoard}>
-          <Board winner={winner} active={active} />
+          <Board winner={winner} active={active} contract={contract} betAmount={`${betAmount * 2}`} currentUser={currentUser}/>
         </div>
       </Zoom>
     </div>
